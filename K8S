@@ -5,3 +5,7 @@ kubectl cluster-info
 CoreDNS is running at https://192.168.59.100:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'."""
 
+kubectl get nodes                                        "check running nodes"
+"NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   29h   v1.27.4"
+
