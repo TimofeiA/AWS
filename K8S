@@ -1,0 +1,2 @@
+kubectl get componentstatuses          "deprecated"
+kubectl get --raw='/readyz?verbose'
