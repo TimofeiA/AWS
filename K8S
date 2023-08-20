@@ -1,3 +1,4 @@
+minikube stop                           "stop"
 kubectl get componentstatuses          "deprecated"
 kubectl get --raw='/readyz?verbose'    "check is it healthy or not"
 kubectl cluster-info
