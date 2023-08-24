@@ -1,4 +1,4 @@
-minikube start --vm-driver="virtualbox"
+minikube start --driver=virtualbox --no-vtx-check
 
 minikube stop                           "stop"
 minikube delete
