@@ -2,3 +2,4 @@ aws configure
 aws ec2 describe-instances
 aws s3 ls
 aws iam list-users
+aws iam get-user
