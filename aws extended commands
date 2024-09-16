@@ -5,3 +5,8 @@ aws ec2 describe-instances --filter "Name=tag:Project,Values=ERPSystem" --query 
 
 aws ec2 describe-instances --filter "Name=tag:Project,Values=ERPSystem" --query 'Reservations[*].Instances[*].{ID:InstanceId,AZ:Placement.AvailabilityZone}'
 
+To include the value of the Project tag in your output, copy and run the following command in the Linux terminal:
+aws ec2 describe-instances --filter "Name=tag:Project,Values=ERPSystem" --query 'Reservations[*].Instances[*].{ID:InstanceId,AZ:Placement.AvailabilityZone,Project:Tags[?Key==`Project`] | [0].Value}'
+The value of a specific named tag can be retrieved via a JMESPath query, using the following syntax:
+Tags[?Key==\`Project\`] | [0].Value
+
