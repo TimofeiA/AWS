@@ -10,3 +10,17 @@ aws ec2 describe-instances --filter "Name=tag:Project,Values=ERPSystem" --query 
 The value of a specific named tag can be retrieved via a JMESPath query, using the following syntax:
 Tags[?Key==\`Project\`] | [0].Value
 
+Finally, add a second tag filter to see only the instances associated with the project named ERPSystem that belong to the Environment named development:
+aws ec2 describe-instances --filter "Name=tag:Project,Values=ERPSystem" "Name=tag:Environment,Values=development" \
+--query 'Reservations[*].Instances[*].{ID:InstanceId,AZ:Placement.AvailabilityZone,Project:Tags[?Key==`Project`] | [0].Value, \
+Environment:Tags[?Key==`Environment`] | [0].Value,Version:Tags[?Key==`Version`] | [0].Value}'
+
+RESULT:
+        {
+            "Project": "ERPSystem",
+            "Environment": "development",
+            "AZ": "us-west-2a",
+            "Version": "1.0",
+            "ID": "i-0835cc15b49a9932b"
+        }
+
